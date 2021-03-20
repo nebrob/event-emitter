@@ -47,3 +47,5 @@ clazz.on('eventName', (arg1, arg2) => {
 clazz.trigger();
 ```
 
+## Methods
+All methods are available and documented in `dist/index.d.ts`
