@@ -1,8 +1,9 @@
 ![Workflow Passing](https://github.com/nebrob/event-emitter/actions/workflows/npm-publish.yml/badge.svg)
 ![Minified Size](https://badgen.net/bundlephobia/minzip/@nebrob/event-emitter)
+
 # Event Emitter
 
-A tiny ES6 event emitter  
+A tiny ES6 event emitter
 
 ## Install
 
