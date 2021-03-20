@@ -1,3 +1,4 @@
+![Workflow Passing](https://github.com/nebrob/event-emitter/actions/workflows/npm-publish.yml/badge.svg)
 # Event Emitter
 
 A tiny ES6 event emitter
