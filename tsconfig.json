@@ -2,9 +2,16 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "~*": ["./*"]
+      "~*": [
+        "./*"
+      ]
     },
-    "lib": ["es2015"],
+    "lib": [
+      "es2015"
+    ]
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "dist/**/*"
+  ]
 }
