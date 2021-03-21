@@ -1,8 +1,10 @@
 export default class EventEmitter {
-    listeners: Map<string, Set<Function | undefined>>;
+    public listeners: Map<string, Set<Function | undefined>>;
+    private _once: Map<string, Set<Function>>;
 
     constructor() {
         this.listeners = new Map();
+        this._once = new Map();
     }
 
     /**
@@ -11,6 +13,11 @@ export default class EventEmitter {
     emit(eventName: string, ...eventPayload: any[]): this {
         this.listeners.get(eventName)?.forEach((eventListener) => {
             eventListener.apply(null, eventPayload)
+
+            if (this._once.get(eventName)?.has(eventListener)) {
+                this.off(eventName, eventListener);
+                this._once.get(eventName).delete(eventListener);
+            }
         })
 
         return this;
@@ -32,12 +39,12 @@ export default class EventEmitter {
      * Attach an event listener that will be triggered only once
      */
     once(eventName: string, eventListener: Function): this {
-        const once = (...args) => {
-            eventListener.apply(null, args)
-            this.off(eventName, once);
+        if (!this._once.has(eventName)) {
+            this._once.set(eventName, new Set());
         }
+        this._once.get(eventName).add(eventListener);
 
-        return this.on(eventName, once);
+        return this.on(eventName, eventListener);
     }
 
     /**
@@ -46,8 +53,10 @@ export default class EventEmitter {
     off(eventName: string, eventListener?: Function): this {
         if (!eventListener) {
             this.listeners.delete(eventName);
+            this._once.delete(eventName);
         } else {
             this.listeners.get(eventName)?.delete(eventListener);
+            this._once.get(eventName)?.delete(eventListener);
         }
 
         return this;

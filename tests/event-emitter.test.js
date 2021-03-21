@@ -13,6 +13,18 @@ test('Attach an event listener', () => {
     })).toBe(eventEmitter);
 })
 
+test('Detach an event listener', () => {
+    const eventEmitter = new EventEmitter();
+
+    const listener = jest.fn();
+    const fnc      = () => listener();
+
+    eventEmitter.on('test_event_name', fnc)
+    eventEmitter.off('test_event_name', fnc);
+    eventEmitter.emit('test_event_name');
+    expect(listener).toBeCalledTimes(0);
+})
+
 test('Receive an emitted event', () => {
     const eventEmitter = new EventEmitter();
 
@@ -32,6 +44,32 @@ test('Receive an event once', () => {
     eventEmitter.emit('test_event_name');
     eventEmitter.emit('test_event_name');
     expect(listener).toBeCalledTimes(1);
+})
+
+test('Detach an "once" listener', () => {
+    const eventEmitter = new EventEmitter();
+
+    const listener = jest.fn();
+    const fnc      = () => listener();
+
+    eventEmitter.once('test_event_name', fnc)
+    eventEmitter.off('test_event_name', fnc);
+    eventEmitter.emit('test_event_name');
+    expect(listener).toBeCalledTimes(0);
+})
+
+test('Re-attach a previous "once" event with same listener', () => {
+    const eventEmitter = new EventEmitter();
+
+    const listener = jest.fn();
+    const fnc      = () => listener();
+
+    eventEmitter.once('test_event_name', fnc)
+    eventEmitter.off('test_event_name', fnc);
+    eventEmitter.on('test_event_name', fnc);
+    eventEmitter.emit('test_event_name');
+    eventEmitter.emit('test_event_name');
+    expect(listener).toBeCalledTimes(2);
 })
 
 test('Detach all listeners of an event', () => {
