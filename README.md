@@ -1,5 +1,5 @@
-![Workflow Passing](https://github.com/nebrob/event-emitter/actions/workflows/npm-publish.yml/badge.svg)
-![Minified Size](https://badgen.net/bundlephobia/minzip/@nebrob/event-emitter)
+![Workflow Passing](https://github.com/nebrob/event-emitter/actions/workflows/npm-publish.yml/badge.svg?service=github)
+![Minified Size](https://badgen.net/bundlephobia/minzip/@nebrob/event-emitter?service=github)
 
 # Event Emitter
 
