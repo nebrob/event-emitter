@@ -80,5 +80,14 @@ export default class EventEmitter {
      */
     off(eventName: string, eventListener?: Function): this;
 }
-
 ```
+
+## Development
+This project is using microbundle for building, and Jest for tests.
+* Run `yarn install` to install development dependencies. 
+* Run `yarn dev` to run microbundle as development mode (enable watching file changes)
+
+### Build
+* Run `yarn test` to run all the tests.
+* Run `yarn build` to make a production build.
+
