@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
-          scope: @nebrob
+          scope: '@nebrob'
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn test
