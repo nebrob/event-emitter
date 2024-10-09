@@ -1,13 +1,19 @@
 {
   "name": "@nebrob/event-emitter",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "A lightweight event emitter",
   "type": "module",
   "source": "src/index.ts",
   "main": "dist/index.cjs",
   "exports": {
-    "require": "./dist/index.cjs",
-    "default": "./dist/index.modern.js"
+    "require": {
+      "default": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "import": {
+      "default": "./dist/index.modern.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
