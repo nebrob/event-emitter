@@ -24,10 +24,3 @@ jobs:
       - run: yarn npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - uses: actions/setup-node@v2
-        with:
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@nebrob"
-      - run: yarn npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
