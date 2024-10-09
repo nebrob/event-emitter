@@ -1,6 +1,6 @@
 {
   "name": "@nebrob/event-emitter",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A lightweight event emitter",
   "type": "module",
   "source": "src/index.ts",
