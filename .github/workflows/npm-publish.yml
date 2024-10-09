@@ -17,6 +17,7 @@ jobs:
           node-version: "20"
           registry-url: https://registry.npmjs.org/
           scope: "@nebrob"
+      - run: corepack enable
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn test
